@@ -1,68 +1,69 @@
 // TODO: Get needed Elements
 // all id elements i need 
-start // div (start button)
-quiz // container
-question 
-qImg // question number image
-A
-B
-C
-D
-counter // countdown counter
-btimeGauge // full grey guage bar
-timeGauge // time-decrementing green guage bar
-progress // progress circles (correct and wrong answers)
-userScoreContainer // end score
+const start = document.getElementById("start"); // div (start button)
+const quiz = document.getElementById("quiz"); // container
+const question = document.getElementById("question");
+const qImg = document.getElementById("qImg"); // question number image
+const A = document.getElementById("A");
+const B = document.getElementById("B");
+const C = document.getElementById("C");
+const D = document.getElementById("D");
+const counter = document.getElementById("counter"); // countdown counter
+const timeGauge = document.getElementById("timeGuage"); // time-decrementing green guage bar
+const progress = document.getElementById("progress"); // progress circles (correct and wrong answers)
+const scoreDiv = document.getElementById("scoreContainer") // end score
 
 // scoreBoard  ---  not sure yet 
 
-// TODO: Create Questions and Answer Choices
-// 5 quesiton with 4 answers (A,B,C,D)
+
+
+
+//* QUESTIONS AND ANSWERS COMPLETED
 
 let questions = [
     {
-        question : "question 1",
-        imgSrc : "img1",
-        choiceA : "answer 1",
-        choiceB : "answer 2",
-        choiceC : "answer 3",
-        choiceD : "answer 4",
+        question : "Which is not a JavaScript variable?",
+        imgSrc : "images/num01.png",
+        choiceA : "let",
+        choiceB : "var",
+        choiceC : "set",
+        choiceD : "const",
         correct : "C"
     },
     {
-        question : "question 2",
-        imgSrc : "img2",
-        choiceA : "answer 1",
-        choiceB : "answer 2",
-        choiceC : "answer 3",
-        choiceD : "answer 4",
+        question : "JavaScript stores dates in a date object by the number of milliseconds since January 1, 19__.",
+        imgSrc : "images/num02.png",
+        choiceA : "1970",
+        choiceB : "1982",
+        choiceC : "1990",
+        choiceD : "1992",
         correct : "A"
     },
     {
-        question : "question 3",
-        imgSrc : "img3",
-        choiceA : "answer 1",
-        choiceB : "answer 2",
-        choiceC : "answer 3",
-        choiceD : "answer 4",
+        question : "The _______ method of an Array object adds and/or removes elements from an array.",
+        imgSrc : "images/num03.png",
+        choiceA : "Reverse",
+        choiceB : "Splice",
+        choiceC : "Slice",
+        choiceD : "Shift",
         correct : "B"
     },
     {
-        question : "question 4",
-        imgSrc : "img4",
-        choiceA : "answer 1",
-        choiceB : "answer 2",
-        choiceC : "answer 3",
-        choiceD : "answer 4",
+        question : "What types of image maps can be used with a JavaScript operator?",
+        imgSrc : "images/num04.png",
+        choiceA : "Client-side image maps",
+        choiceB : "Server-side image maps",
+        choiceC : "Both server-side and client-side",
+        choiceD : "None of the Above",
         correct : "A"
     },
     {
-        question : "question 5",
-        imgSrc : "img5",
-        choiceA : "answer 1",
-        choiceB : "answer 2",
-        choiceC : "answer 3",
-        choiceD : "answer 4",
+        question : "Which is not a JavaScript variable?",
+        imgSrc : "images/num05.png",
+        choiceA : "new",
+        choiceB : "typeof",
+        choiceC : "delete",
+        choiceD : "this",
         correct : "D"
     }
 ];
