@@ -68,21 +68,39 @@ let questions = [
     }
 ];
 
+// TODO: Create Variables for functions
+
+let runningQuestion = 0;
+// lastQuestionIndex(length is 4 - index is 3)
+const lastQuestion = questions.length -1;
+let TIMER;
+
+
+
 // TODO: FUNCTIONS NEEDED
 
 
-// TODO: render Quiz Questions and Answers
-// create inner.HTML
-function renQuestion() {
+//* QUESTIONS AND ANSWERS INNER HTML COMPLETED
 
+function renQuestion() {
+    let q = questions[runningQuestion];
+
+    question.innerHTML = "<p>"+ q.question +"<p>";
+    qImg.innerHTML  = "<img src="+ q.imgSrc +">";
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
+    choiceD.innerHTML = q.choiceD;
 }
 
 // TODO: Create CLICK event listener to startQuiz
-// start.addEventListener("click", startQuiz);
+start.addEventListener("click", startQuiz);
 
 // TODO: start Quiz
 function startQuiz() {
-
+    start.style.display = "none";
+    quiz.style.display = "block";
+    renQuestion();
 }
 
 // TODO: TIMER - counter's Countdown
