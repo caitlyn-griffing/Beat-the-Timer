@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./assets/polish.css">
+</head>
+<body>
+    <!-- --- Wrapper for Everything in Body --- -->
+    <div id="container">
+        <!-- Start Button -->
+        <div id="start">Start Quiz!</div>
+        <!-- Quiz Container -->
+        <div id="quiz" style="display: none">
+            <!-- Question Container -->
+            <div id="question">  </div>
+            <!-- Question Image -->
+            <div id="qImg"></div>
+            <!-- Answer choices Container-->
+            <div id="choices" class="btn-grid">
+                <!-- Choice A, B, C, D -->
+                <div class="choice" id="A" onclick="checkAnswer('A')">answer one</div>
+                <div class="choice" id="B" onclick="checkAnswer('B')">answer two</div>
+                <div class="choice" id="C" onclick="checkAnswer('C')">answer three</div>
+                <div class="choice" id="D" onclick="checkAnswer('D')">answer four</div>
+            </div>
+            <!-- Timer Container -->
+            <div id="timer">
+                <!-- Number Countdown Counter -->
+                <div id="counter"></div>
+                <!-- Full Grey Time Guage Bar -->
+                <div id="btimeGauge"></div>
+                <!-- Actual Green Time Guage Bar -->
+                <div id="timeGauge"></div>
+            </div>
+            <!-- Progress Circles for Right and Wrong Answers - Answered -->
+            <div id="progress"></div>
+        </div>
+        <!-- Score Container -->
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
+    <script src="./assets/sandbox.js"></script>
+</body>
+</html>

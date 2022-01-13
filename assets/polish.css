@@ -1,0 +1,277 @@
+/* Everything is 20px font size and Monospace text */
+body{
+    font-size: 20px;
+    font-family: monospace;
+    margin: 0 auto;
+    padding: 77px;
+    background-color: lightslategray;
+}
+
+/*  ---  Main Container  ---
+
+(Wrapper) that Holds Everything in the Body
+Margin is 20px
+Background color is white
+Width is 700px and Height is 300px
+Corners are rounded 5px
+Box Shadow darker from beneath
+Position is relative (will move outward) depending on whatever is added to the main container
+
+ */
+#container{
+    margin : 20px auto;
+    background-image: url(./images/marble.jpeg);
+    background-size: 700px 375px;
+    background-repeat: no-repeat;
+    height: 375px;
+    width : 700px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px;
+    position: relative;
+}
+
+/*  ---  Start Quiz <div> Button  ---  
+
+- Font is 30px, Bold, Centered, and Lightgrey
+- word break / break all prevents word overflow outside of container
+- Border is lightgrey (like the font), Solid, 2px
+- Positioned Absolutely 300px from the left and 50px from the top inside the Relative Main container 
+- Width and Height of button are 100 x 150 px
+
+*/
+
+#start {
+    font-size: 1.5em;
+    font-weight: bolder;
+    word-break: break-all;
+    width:100px;
+    height:150px;
+    border : 2.5px solid slategrey;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    left:300px;
+    top:50px;
+    color : slategrey;
+}
+
+/*  ---  When the start button is hovered over by user, the font and border sure light sea Green with the border growing by 1px  ---
+
+*/
+
+#start:hover{
+    border: 4px solid lightseagreen;
+    color : lightseagreen;
+}
+
+/*  ---  Question Image Container ---  
+
+- The Width & Height are Both 200px
+- It's positioned absolutely in the top left corner of the Main Container
+
+*/
+
+#qImg {
+    width : 200px;
+    height : 200px;
+    position: absolute;
+    left : 0px;
+    top : 0px;
+}
+
+/*  ---  Actual Question Image  ---
+
+- Same as above but with top left corner egde to 5px to match the Main Containers rounded corner
+
+*/
+
+#qImg img{
+    width : 200px;
+    height : 200px;
+    border-top-left-radius: 5px;
+}
+
+/*  ---  Question Container <div>  ---
+
+- Holds the question paragraph that we will create in JavaScript
+
+*/
+
+#question {
+    width:500px;
+    height : 125px;
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+/*  ---  Actual Question <p>  ---
+
+- This will be created in JavaScript
+
+*/
+
+#question p {
+    margin : 0;
+    padding : 15px;
+    font-size: 1.25em;
+}
+
+/*  ---  Answers Container <div>  ---
+
+*/
+
+#choices {
+    width : 425px;
+    position: absolute;
+    right : 0;
+    top : 125px;
+    padding : 10px
+}
+
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 13px;
+    margin: 7px 0;
+}
+
+/*  ---  Actual Answer Choices <div>  ---
+
+*/
+
+.choice {
+    display: inline-block;
+    text-align: center;
+    border : 1px solid slategrey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding : 5px;
+    width: 150px;
+}
+
+/*  ---  Actual Answer Choices Hovered  ---
+
+*/
+
+.choice:hover {
+    border : 2px solid lightseagreen;
+    font-weight: bold;
+    color: lightseagreen;
+}
+
+/*  ---  Timer Container  ---
+
+*/
+
+#timer {
+    position: absolute;
+    height : 100px;
+    width : 200px;
+    bottom : 0px;
+    text-align: center;
+}
+
+/*  ---  Number Counter  ---
+
+*/
+
+#counter {
+    font-size: 3em;
+}
+
+/*  ---  Full grey Time Guage  ---
+
+*/
+
+#btimeGauge {
+    width : 450px;
+    height : 10px;
+    border-radius: 10px;
+    background-color: lightslategrey;
+    margin-left : 25px;
+}
+
+/*  ---  Actual Timer Guage Bar Green  ---
+
+*/
+
+#timeGauge {
+    height : 10px;
+    border-radius: 10px;
+    background-color: mediumseagreen;
+    margin-top : -10px;
+    margin-left : 25px;
+}
+
+/*  ---  Progress Container  ---
+
+*/
+
+#progress {
+    width : 500px;
+    position: absolute;
+    bottom : 0px;
+    right : 0px;
+    padding:5px;
+    text-align: right;
+}
+
+/*  ---  Progress Circles Inside Container  ---
+
+*/
+
+.prog {
+    width : 25px;
+    height : 25px;
+    border: 1px solid #000;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left : 5px;
+    margin-right : 5px;
+}
+
+/*  ---  Scoreboard Container  ---
+
+
+
+*/
+
+#scoreContainer {
+    margin : 20px auto;
+    background-image: url(./images/marble.jpeg);
+    background-size: 700px 375px;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    height: 375px;
+    width : 700px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px 0px;
+    position: relative;
+    display: none;
+}
+/*  ---  ScoreBoard Table  ---
+
+/* TODO: Make a ScoreBoard Table inside the Main Score Container
+
+*/
+
+
+/*  ---  Scoreboard Container Score %  ---
+
+
+
+*/
+
+#scoreContainer p {
+    position: absolute;
+    display: block;
+    width : 59px;
+    height :59px;
+    top:130px;
+    left:325px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
