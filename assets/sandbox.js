@@ -1,17 +1,16 @@
 // TODO: Get needed Elements
 // all id elements i need 
-const start = document.getElementById("start"); // div (start button)
-const quiz = document.getElementById("quiz"); // container
-const question = document.getElementById("question");
-const qImg = document.getElementById("qImg"); // question number image
+const startEl = document.getElementById("start");
+const quizEl = document.getElementById("quiz"); 
+const questionEl = document.getElementById("question");
+const qImgEl = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const choiceD = document.getElementById("D");
-const counter = document.getElementById("counter"); // countdown counter
-const timeGauge = document.getElementById("timeGuage"); // time-decrementing green guage bar
-const progress = document.getElementById("progress"); // progress circles (correct and wrong answers)
-const scoreDiv = document.getElementById("scoreContainer") // end score
+const counterEl = document.getElementById("counter");
+const progress = document.getElementById("progress");
+const scoreDiv = document.getElementById("scoreContainer");
 
 // scoreBoard  ---  not sure yet 
 
@@ -23,7 +22,7 @@ const scoreDiv = document.getElementById("scoreContainer") // end score
 let questions = [
     {
         question : "Which is not a JavaScript variable?",
-        imgSrc : "images/num01.png",
+        imgSrc : "assets/images/num01.png",
         choiceA : "let",
         choiceB : "var",
         choiceC : "set",
@@ -59,8 +58,7 @@ let questions = [
     },
     {
         question : "Which is not a JavaScript variable?",
-        imgSrc : "images/num05.png",
-        choiceA : "new",
+         choiceA : "new",
         choiceB : "typeof",
         choiceC : "delete",
         choiceD : "this",
@@ -68,73 +66,64 @@ let questions = [
     }
 ];
 
-// TODO: Create Variables for functions
+
+startEl.addEventListener("click", startQuiz);
+
+function startQuiz() {
+    startEl.style.display = "none";
+    quizEl.style.display = "block";
+    countdown();
+    showQuestion();
+
+
+
+    // render question
+    // start timer
+
+}
+
+// TODO: Create Countdown Timer
+
+// html id: counter
+let quizTime = 60;
+
+function countdown() {
+    setInterval(function () {
+        quizTime--;
+        counterEl.innerHTML = quizTime;
+    }, 1000);
+};
 
 let runningQuestion = 0;
-// lastQuestionIndex(length is 4 - index is 3)
-const lastQuestion = questions.length -1;
-let TIMER;
 
-
-
-// TODO: FUNCTIONS NEEDED
-
-
-//* QUESTIONS AND ANSWERS INNER HTML COMPLETED
-
-function renQuestion() {
+function showQuestion() {
     let q = questions[runningQuestion];
 
-    question.innerHTML = "<p>"+ q.question +"<p>";
-    qImg.innerHTML  = "<img src="+ q.imgSrc +">";
+    questionEl.innerHTML = "<p>"+ q.question +"</p>";
+    qImgEl.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 }
 
-// TODO: Create CLICK event listener to startQuiz
-start.addEventListener("click", startQuiz);
+// 60 Second Countdown for Entire Quiz
+// If answer is wrong() deduct 10 seconds
+// if answer is correct() ++ to next question
 
-// TODO: start Quiz
-function startQuiz() {
-    start.style.display = "none";
-    quiz.style.display = "block";
-    renQuestion();
-}
+// TODO: Create next question function
+// for loop through all questions
 
-// TODO: TIMER - counter's Countdown
-// 60 seconds for entire quiz
-function countdown() {
+// TODO: Create answer is WRONG Function
 
-}
-
-// TODO: render the progress of quiz
-function renProgress() {
-
-}
-
-// TODO: WRONG answer
-// turn progress circle red
-// deduct -10 seconds from overall quiz time
 function wrongAnswer() {
-
+    // deduct 10 seconds
+    // show answers (colors)
 }
 
+// TODO: Create answer is CORRECT Funciton
 
-// TODO: CORRECT answer
-// turn progress circle to green
 function correctAnswer() {
-
+    // show answers (colors choice backgrounds green and red)
+    // move on to the next question
 }
-
-
-// TODO: render the current score of user
-function renScore() {
-
-}
-
-
-// TODO: LOCAL STORAGE to save and render highscores
-
-

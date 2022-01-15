@@ -18,7 +18,7 @@ Box Shadow darker from beneath
 Position is relative (will move outward) depending on whatever is added to the main container
 
  */
-#container{
+#wrapper {
     margin : 20px auto;
     background-image: url(./images/marble.jpeg);
     background-size: 700px 375px;
@@ -179,30 +179,6 @@ Position is relative (will move outward) depending on whatever is added to the m
 
 #counter {
     font-size: 3em;
-}
-
-/*  ---  Full grey Time Guage  ---
-
-*/
-
-#btimeGauge {
-    width : 450px;
-    height : 10px;
-    border-radius: 10px;
-    background-color: lightslategrey;
-    margin-left : 25px;
-}
-
-/*  ---  Actual Timer Guage Bar Green  ---
-
-*/
-
-#timeGauge {
-    height : 10px;
-    border-radius: 10px;
-    background-color: mediumseagreen;
-    margin-top : -10px;
-    margin-left : 25px;
 }
 
 /*  ---  Progress Container  ---
