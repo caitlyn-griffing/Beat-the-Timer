@@ -31,7 +31,7 @@ let questions = [
     },
     {
         question : "JavaScript stores dates in a date object by the number of milliseconds since January 1, 19__.",
-        imgSrc : "images/num02.png",
+        imgSrc : "assets/images/num02.png",
         choiceA : "1970",
         choiceB : "1982",
         choiceC : "1990",
@@ -40,7 +40,7 @@ let questions = [
     },
     {
         question : "The _______ method of an Array object adds and/or removes elements from an array.",
-        imgSrc : "images/num03.png",
+        imgSrc : "assets/images/num03.png",
         choiceA : "Reverse",
         choiceB : "Splice",
         choiceC : "Slice",
@@ -49,7 +49,7 @@ let questions = [
     },
     {
         question : "What types of image maps can be used with a JavaScript operator?",
-        imgSrc : "images/num04.png",
+        imgSrc : "assets/images/num04.png",
         choiceA : "Client-side image maps",
         choiceB : "Server-side image maps",
         choiceC : "Both server-side and client-side",
@@ -58,7 +58,8 @@ let questions = [
     },
     {
         question : "Which is not a JavaScript variable?",
-         choiceA : "new",
+        imgSrc : "assets/images/num05.png",
+        choiceA : "new",
         choiceB : "typeof",
         choiceC : "delete",
         choiceD : "this",
@@ -83,18 +84,23 @@ function startQuiz() {
 }
 
 // TODO: Create Countdown Timer
+//* COMPLETED
 
 // html id: counter
 let quizTime = 60;
 
-function countdown() {
+let countdown = () => {
     setInterval(function () {
         quizTime--;
         counterEl.innerHTML = quizTime;
     }, 1000);
 };
 
+// TODO: Show Question, Question Number Image, and Answer Choices
+//* COMPLETED
+
 let runningQuestion = 0;
+const lastQuestion = questions.length -1;
 
 function showQuestion() {
     let q = questions[runningQuestion];
@@ -106,6 +112,19 @@ function showQuestion() {
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 }
+//*************
+
+// TODO: Create a Next Question Function
+
+function nextQuestion() {
+    if ( runningQuestion < lastQuestion ) {
+        runningQuestion++;
+        showQuestion();
+    }
+}
+
+choiceD.addEventListener('click', nextQuestion);
+
 
 // 60 Second Countdown for Entire Quiz
 // If answer is wrong() deduct 10 seconds
