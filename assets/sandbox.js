@@ -67,6 +67,8 @@ let questions = [
     }
 ];
 
+let quizTime = 60;
+let TIMER;
 
 startEl.addEventListener("click", startQuiz);
 
@@ -74,7 +76,9 @@ function startQuiz() {
     startEl.style.display = "none";
     quizEl.style.display = "block";
     countdown();
+    TIMER = setInterval(countdown, 1000);
     showQuestion();
+    renderProgress();
 
 
 
@@ -87,14 +91,14 @@ function startQuiz() {
 //* COMPLETED
 
 // html id: counter
-let quizTime = 60;
 
-let countdown = () => {
-    setInterval(function () {
-        quizTime--;
-        counterEl.innerHTML = quizTime;
-    }, 1000);
-};
+
+function countdown() {
+    quizTime--;
+    counterEl.innerHTML = quizTime;
+    
+} 
+
 
 // TODO: Show Question, Question Number Image, and Answer Choices
 //* COMPLETED
@@ -115,6 +119,7 @@ function showQuestion() {
 //*************
 
 // TODO: Create a Next Question Function
+//* COMPLETED
 
 function nextQuestion() {
     if ( runningQuestion < lastQuestion ) {
@@ -123,19 +128,45 @@ function nextQuestion() {
     }
 }
 
-choiceD.addEventListener('click', nextQuestion);
+// choiceD.addEventListener('click', nextQuestion);
+//**************
 
 
-// 60 Second Countdown for Entire Quiz
-// If answer is wrong() deduct 10 seconds
-// if answer is correct() ++ to next question
 
-// TODO: Create next question function
-// for loop through all questions
+
+// let score = 0;
+
+function checkAnswer(answer) {
+    if( answer == questions[runningQuestion].correct ){
+
+        correctAnswer();
+
+    } else {
+
+        wrongAnswer();
+
+    }
+    count = 0;
+    if( runningQuestion < lastQuestion ){
+        nextQuestion();
+    } else {
+        clearInterval(TIMER);
+        counterEl.innerHTML = 0;
+        // startEl.style.display = "block";
+        // quizEl.style.display = "none";
+
+        // clearInterval(TIMER);
+        // render score
+    }
+}
+
 
 // TODO: Create answer is WRONG Function
 
 function wrongAnswer() {
+    document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+    quizTime = quizTime -10;
+    counterEl.innerHTML = quizTime;
     // deduct 10 seconds
     // show answers (colors)
 }
@@ -143,6 +174,20 @@ function wrongAnswer() {
 // TODO: Create answer is CORRECT Funciton
 
 function correctAnswer() {
+    if( questions[runningQuestion].correct ) {
+        document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+    }
+    
+    // score++;
     // show answers (colors choice backgrounds green and red)
     // move on to the next question
 }
+
+// TODO: render progress
+//* COMPLETED
+function renderProgress(){
+    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
+    }
+}
+//*****************
