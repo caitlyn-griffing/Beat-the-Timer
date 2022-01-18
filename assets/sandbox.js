@@ -79,13 +79,7 @@ function startQuiz() {
     TIMER = setInterval(countdown, 1000);
     showQuestion();
     renderProgress();
-
-
-
-    // render question
-    // start timer
-
-}
+};
 
 // TODO: Create Countdown Timer
 //* COMPLETED
@@ -97,7 +91,7 @@ function countdown() {
     quizTime--;
     counterEl.innerHTML = quizTime;
     
-} 
+};
 
 
 // TODO: Show Question, Question Number Image, and Answer Choices
@@ -115,7 +109,7 @@ function showQuestion() {
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
-}
+};
 //*************
 
 // TODO: Create a Next Question Function
@@ -126,7 +120,7 @@ function nextQuestion() {
         runningQuestion++;
         showQuestion();
     }
-}
+};
 
 // choiceD.addEventListener('click', nextQuestion);
 //**************
@@ -135,7 +129,9 @@ function nextQuestion() {
 
 
 // let score = 0;
-
+// TODO: Check Answers
+// check if correct, else wrong -- check if more questions, else clear timer
+//* COMPLETED *****
 function checkAnswer(answer) {
     if( answer == questions[runningQuestion].correct ){
 
@@ -152,42 +148,40 @@ function checkAnswer(answer) {
     } else {
         clearInterval(TIMER);
         counterEl.innerHTML = 0;
-        // startEl.style.display = "block";
-        // quizEl.style.display = "none";
-
-        // clearInterval(TIMER);
-        // render score
+        
+        // render save-score
     }
-}
+};
+//*****************
 
 
 // TODO: Create answer is WRONG Function
-
+//* COMPLETED *****
 function wrongAnswer() {
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
     quizTime = quizTime -10;
     counterEl.innerHTML = quizTime;
     // deduct 10 seconds
     // show answers (colors)
-}
+};
+//*****************
 
 // TODO: Create answer is CORRECT Funciton
-
+//* COMPLETED *****
 function correctAnswer() {
     if( questions[runningQuestion].correct ) {
         document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
     }
     
     // score++;
-    // show answers (colors choice backgrounds green and red)
-    // move on to the next question
-}
+};
+//*****************
 
 // TODO: render progress
-//* COMPLETED
+//* COMPLETED *****
 function renderProgress(){
     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
-}
+};
 //*****************
