@@ -12,12 +12,10 @@ const counterEl = document.getElementById("counter");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 const scorePerCent = document.getElementById("scorePerCent");
-// const  = document.getElementById("");
-
+const saveEl = document.getElementById("save");
+const scoreboardEl = document.getElementById("scoreboard");
+//
 // scoreBoard  ---  not sure yet 
-
-
-
 
 //* QUESTIONS AND ANSWERS COMPLETED
 
@@ -82,23 +80,17 @@ function startQuiz() {
     showQuestion();
     renderProgress();
 };
-
-// TODO: Create Countdown Timer
+//
+// TODO Create Countdown Timer
 //* COMPLETED
-
-// html id: counter
-
-
 function countdown() {
     quizTime--;
     counterEl.innerHTML = quizTime;
     
 };
-
-
-// TODO: Show Question, Question Number Image, and Answer Choices
+//
+// TODO Show Question, Question Number Image, and Answer Choices
 //* COMPLETED
-
 let runningQuestion = 0;
 const lastQuestion = questions.length -1;
 
@@ -112,25 +104,17 @@ function showQuestion() {
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 };
-//*************
-
-// TODO: Create a Next Question Function
+//
+// TODO Create a Next Question Function
 //* COMPLETED
-
 function nextQuestion() {
     if ( runningQuestion < lastQuestion ) {
         runningQuestion++;
         showQuestion();
     }
 };
-
-// choiceD.addEventListener('click', nextQuestion);
-//**************
-
-// if more questions show next question - if no more questions, clear timer - show timer as 0 - ...
-// TODO: render users current score and inital form
-
-function endQuiz() {
+// if more questions show next question - if no more questions, clear timer - show timer as 0 - show score div and users score %;
+let endQuiz = () => {
     if( runningQuestion < lastQuestion ){
         nextQuestion();
     } else {
@@ -139,11 +123,8 @@ function endQuiz() {
         showScore();
     }
 }
-
-
-
 // let score = 0;
-// TODO: Check Answers
+// TODO Check Answers
 // check if correct, else wrong -- check if more questions, else clear timer
 //* COMPLETED *****
 function checkAnswer(answer) {
@@ -160,24 +141,20 @@ function checkAnswer(answer) {
 
     endQuiz();
 }
-//*****************
-
-
-
-// TODO: Create answer is WRONG Function
+//
+// TODO Create answer is WRONG Function
 //* COMPLETED *****
-function wrongAnswer() {
+let wrongAnswer = () => {
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
     quizTime = quizTime -10;
     counterEl.innerHTML = quizTime;
     // deduct 10 seconds
     // show answers (colors)
 };
-//*****************
-
-// TODO: Create answer is CORRECT Funciton
+//
+// TODO Create answer is CORRECT Function
 //* COMPLETED *****
-function correctAnswer() {
+let correctAnswer = () => {
     if( questions[runningQuestion].correct ) {
         document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
         score++;
@@ -185,45 +162,44 @@ function correctAnswer() {
     
     // score++;
 };
-//*****************d
-
-// TODO: render progress
+//
+// TODO render progress
 //* COMPLETED *****
-function renderProgress(){
+let renderProgress = () => {
     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 };
-//*****************
+//
+// TODO: render current score form and current score percentage
 
-
-
-// TODO: Initial Form: form input and submit button
-//* COMPLETED *****
-// Have this inside of a container in front of the current quiz container with opacity
-// Show User's Score percentage
-// Allow User to input Initials to Save score
-// SUBMIT button to Save User's Score
-//*****************
-
-
-
-// TODO: render current score (End of Quiz)
-//! INFO: JS scoreDiv = HTML scoreContainer is the score div
 // show score container
 
 let score = 0;
 
-function showScore() {
-    scoreDiv.style.display = "block";
-    const scorePercentage = Math.round(100 * score/questions.length);
+// users quiz score percentage
+let usersScore = () => {
+    var scorePercentage = Math.round(100 * score/questions.length);
     scorePerCent.innerHTML = scorePercentage+ "%";
 }
 
-// TODO: ADD Current score with submit div and button
-// score % = Math.round(100 * score/questions.length)
+// show score div (container) and show users score (%) percentage 
+let showScore = () => {
+    scoreDiv.style.display = "block";
+    usersScore();
+}
 
-// TODO: save current score and initials
 
-// localStorage.setItem('currentScore', 'score');
-// localStorage.getItem('currentScore');
+
+// TODO: click save button => grab & save users score %, grab & save users initials
+
+// TODO: 1. saveEl add event listener click, => function that saves users info
+
+saveEl.addEventListener('click', saveUsersInfo())
+
+// TODO: 2. how to retreieve value of users score %
+
+// TODO: 3. how to retreive value of users initials
+
+// TODO: 4. create function that saves both upon click and show them on #scoreboard
+
