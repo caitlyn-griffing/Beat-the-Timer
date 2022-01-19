@@ -11,6 +11,8 @@ const choiceD = document.getElementById("D");
 const counterEl = document.getElementById("counter");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
+const scorePerCent = document.getElementById("scorePerCent");
+// const  = document.getElementById("");
 
 // scoreBoard  ---  not sure yet 
 
@@ -125,6 +127,18 @@ function nextQuestion() {
 // choiceD.addEventListener('click', nextQuestion);
 //**************
 
+// if more questions show next question - if no more questions, clear timer - show timer as 0 - ...
+// TODO: render users current score and inital form
+
+function endQuiz() {
+    if( runningQuestion < lastQuestion ){
+        nextQuestion();
+    } else {
+        clearInterval(TIMER);
+        counterEl.innerHTML = 0;
+        showScore();
+    }
+}
 
 
 
@@ -143,16 +157,11 @@ function checkAnswer(answer) {
 
     }
     count = 0;
-    if( runningQuestion < lastQuestion ){
-        nextQuestion();
-    } else {
-        clearInterval(TIMER);
-        counterEl.innerHTML = 0;
-        
-        // render save-score
-    }
-};
+
+    endQuiz();
+}
 //*****************
+
 
 
 // TODO: Create answer is WRONG Function
@@ -171,11 +180,12 @@ function wrongAnswer() {
 function correctAnswer() {
     if( questions[runningQuestion].correct ) {
         document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+        score++;
     }
     
     // score++;
 };
-//*****************
+//*****************d
 
 // TODO: render progress
 //* COMPLETED *****
@@ -185,3 +195,35 @@ function renderProgress(){
     }
 };
 //*****************
+
+
+
+// TODO: Initial Form: form input and submit button
+//* COMPLETED *****
+// Have this inside of a container in front of the current quiz container with opacity
+// Show User's Score percentage
+// Allow User to input Initials to Save score
+// SUBMIT button to Save User's Score
+//*****************
+
+
+
+// TODO: render current score (End of Quiz)
+//! INFO: JS scoreDiv = HTML scoreContainer is the score div
+// show score container
+
+let score = 0;
+
+function showScore() {
+    scoreDiv.style.display = "block";
+    const scorePercentage = Math.round(100 * score/questions.length);
+    scorePerCent.innerHTML = scorePercentage+ "%";
+}
+
+// TODO: ADD Current score with submit div and button
+// score % = Math.round(100 * score/questions.length)
+
+// TODO: save current score and initials
+
+// localStorage.setItem('currentScore', 'score');
+// localStorage.getItem('currentScore');

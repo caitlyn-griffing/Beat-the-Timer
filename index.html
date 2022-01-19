@@ -11,7 +11,8 @@
         <!-- Start Button -->
         <div id="start">Start Quiz!</div>
         <!-- Quiz Container -->
-        <div id="quiz" style="display: none">
+        <!-- style="display: none" -->
+        <div id="quiz" style="display: none;">
             <!-- Question Container -->
             <div id="question"></div>
             <!-- Question Image -->
@@ -33,7 +34,16 @@
             <div id="progress"></div>
         </div>
         <!-- Score Container -->
-        <div id="scoreContainer" style="display: none"></div>
+        <div id="scoreContainer" style="display: none;">
+            <div id="scoreWrapper">
+                <div id="scorePercent">Score %: <p id=scorePerCent></p> </div>
+                <form id="save-score">
+                    <label for="initials">Initials:</label>
+                    <input type="text" id="initials" name="initials" placeholder="CG">
+                    <button id="save">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="./assets/sandbox.js"></script>
 </body>
