@@ -181,6 +181,7 @@ let score = 0;
 let usersScore = () => {
     var scorePercentage = Math.round(100 * score/questions.length);
     scorePerCent.innerHTML = scorePercentage+ "%";
+    return scorePercentage;
 }
 
 // show score div (container) and show users score (%) percentage 
@@ -195,7 +196,7 @@ let showScore = () => {
 
 // TODO: 1. saveEl add event listener click, => function that saves users info
 
-saveEl.addEventListener('click', saveUsersInfo())
+saveEl.addEventListener('click', saveUsersInfo()) //! saveUsersInfo() is not a function yet
 
 // TODO: 2. how to retreieve value of users score %
 
@@ -203,3 +204,6 @@ saveEl.addEventListener('click', saveUsersInfo())
 
 // TODO: 4. create function that saves both upon click and show them on #scoreboard
 
+
+
+scoreboardEl
