@@ -38,7 +38,7 @@
 
 ## Important Links
 
-- [Deployed URL](https://caitlyn-griffing.github.io/PutNameHere----------/)
+- [Deployed URL](https://caitlyn-griffing.github.io/Beat-the-Timer/)
 - [GitHub Repo](https://github.com/caitlyn-griffing/PutNameHere----------)
 
 ---
