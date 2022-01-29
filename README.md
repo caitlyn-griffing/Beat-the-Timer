@@ -22,7 +22,7 @@
 
 ## **Link** and **Preview** of Deployed Web Page
 
-- [Deployed Web Page](https://caitlyn-griffing.github.io/PutNameHere----------/)
+- [Deployed Web Page](https://caitlyn-griffing.github.io/Beat-the-Timer//)
 
 ![code quiz screenshot1](assets/images/readmeImages/codeQuiz1.png)
 
@@ -45,7 +45,7 @@
 
 ## Licensing
 
-- [MIT](https://github.com/caitlyn-griffing/PutNameHere----------/blob/main/LICENSE)
+- [MIT](https://github.com/caitlyn-griffing/Beat-the-Timer/blob/main/LICENSE)
 
 ---
 
